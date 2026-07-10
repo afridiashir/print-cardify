@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { event } from '@/lib/gtag';
 
 
 
@@ -36,11 +37,13 @@ const ModernSidebar = ({
   }
 
   function print() {
+    event({ action: "generate_print", category: "front_back_card", label: "cnic", value: count });
     window.print();
   }
 
   function handleCountChange(value) {
     setCount(parseInt(value));
+    event({ action: "change_copies", category: "front_back_card", label: "cnic", value: parseInt(value) });
   }
 
   function handleFrontFileChange(e) {
@@ -48,6 +51,7 @@ const ModernSidebar = ({
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setFrontImage(imageUrl);
+      event({ action: "upload_image", category: "front_back_card", label: "front" });
     }
   }
 
@@ -56,6 +60,7 @@ const ModernSidebar = ({
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setBackImage(imageUrl);
+      event({ action: "upload_image", category: "front_back_card", label: "back" });
     }
   }
 
@@ -64,6 +69,7 @@ const ModernSidebar = ({
     setFrontImage(null);
     setBackImage(null);
     setCount(1);
+    event({ action: "reset", category: "front_back_card" });
   }
   function back(){
     router.back();

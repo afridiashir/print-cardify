@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { event } from "@/lib/gtag";
 
 
 
@@ -43,7 +44,10 @@ export function FeaturesSection() {
                   Create perfect front-back CNIC layouts with precise measurements. Upload both sides and get print-ready results.
                 </p>
                 <button
-                  onClick={() => router.push('/front-back-card')}
+                  onClick={() => {
+                    event({ action: "select_generator", category: "engagement", label: "cnic" });
+                    router.push('/front-back-card');
+                  }}
                   className="w-full cursor-pointer bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-violet-500/25 hover:shadow-xl hover:shadow-violet-500/30 transition-all duration-300"
                 >
                   Launch CNIC Generator →
@@ -64,7 +68,10 @@ export function FeaturesSection() {
                   Transform your photo into multiple passport-size prints. Perfect for applications, visas, and official documents.
                 </p>
                 <button
-                  onClick={() =>  router.push('/passport-photo')}
+                  onClick={() => {
+                    event({ action: "select_generator", category: "engagement", label: "passport_photo" });
+                    router.push('/passport-photo');
+                  }}
                   className="w-full  cursor-pointer bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-6 py-3 rounded-xl font-medium shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all duration-300"
                 >
                   Launch Passport Maker →

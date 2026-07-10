@@ -17,6 +17,7 @@ import {
   Grid3X3
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { event } from '@/lib/gtag';
 
 
 const page = () => {
@@ -26,6 +27,7 @@ const page = () => {
 
   function handleCountChange(value) {
     setCount(parseInt(value));
+    event({ action: "change_copies", category: "passport_photo", value: parseInt(value) });
   }
 
   function handleFileChange(e) {
@@ -33,16 +35,19 @@ const page = () => {
     if (file) {
       const imageUrl = URL.createObjectURL(file);
       setImage(imageUrl);
+      event({ action: "upload_image", category: "passport_photo" });
     }
   }
 
   function print() {
+    event({ action: "generate_print", category: "passport_photo", value: count });
     window.print();
   }
 
   function reset() {
     setImage(null);
     setCount(4);
+    event({ action: "reset", category: "passport_photo" });
   }
   function back(){
     router.back();
