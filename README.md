@@ -1,36 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Print Cardify
 
-## Getting Started
+If you've ever needed to print a photocopy of your CNIC or a set of passport photos, you know the routine: go to a print shop, explain what you need, wait, pay, and hope they arranged the copies sensibly on the page. Doing it yourself isn't much better — manually placing images on an A4 sheet in Word or Photoshop just to get the spacing and card size right is fiddly and wastes paper when it's off.
 
-First, run the development server:
+Print Cardify exists to skip all of that. Upload the front and back of a card, or a single photo, and it lays everything out at the correct real-world size — 85×53.9mm for ID cards, 35×45mm for passport photos — arranged and repeated to fill an A4 sheet, ready to print directly from the browser.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Why it's built the way it is
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **No accounts, no uploads to a server.** Images never leave your browser — they're processed and rendered locally and sent straight to `window.print()`. There was no reason to make people trust a server with a scan of their ID card.
+- **Free.** This started as a tool to solve a recurring personal annoyance, not a product to monetize.
+- **Correct measurements over "close enough".** Print shops and generic templates often get card dimensions slightly wrong, wasting a printed sheet. Getting the millimeters right is the entire point.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## What's here today
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **CNIC / ID card layout generator** — front and back images arranged in a repeating grid for printing multiple copies at once.
+- **Passport photo maker** — one photo turned into a grid of standard passport-size prints (4 to 20 per sheet).
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+More layout generators (e.g. polaroid-style prints) are planned as the same need comes up for other formats.
