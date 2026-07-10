@@ -20,7 +20,7 @@ import { useRouter } from 'next/navigation';
 import { event } from '@/lib/gtag';
 
 
-const page = () => {
+const PassportPhotoClient = () => {
   const router= useRouter();
   const [count, setCount] = useState(4);
   const [image, setImage] = useState(null);
@@ -194,4 +194,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default PassportPhotoClient;

@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE_URL } from "@/lib/site-config";
-import FrontBackCardClient from "./FrontBackCardClient";
+import PassportPhotoClient from "./PassportPhotoClient";
 
-const TITLE = "CNIC Front-Back Card Layout Generator";
+const TITLE = "Passport Photo Maker — Free Photo Grid Generator";
 const DESCRIPTION =
-  "Upload the front and back of your CNIC or ID card and generate a print-ready A4 layout with multiple copies, sized precisely at 85×53.9mm. Free, fast, and runs entirely in your browser.";
+  "Upload one photo and generate a print-ready grid of 4 to 20 passport-size (35×45mm) photos on a single page. Free, fast, and runs entirely in your browser.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: {
-    canonical: "/front-back-card",
+    canonical: "/passport-photo",
   },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: "/front-back-card",
+    url: "/passport-photo",
   },
   twitter: {
     title: TITLE,
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function FrontBackCardPage() {
+export default function PassportPhotoPage() {
   return (
     <>
       <JsonLd
@@ -34,12 +34,12 @@ export default function FrontBackCardPage() {
           name: TITLE,
           applicationCategory: "UtilitiesApplication",
           operatingSystem: "Any (Web Browser)",
-          url: `${SITE_URL}/front-back-card`,
+          url: `${SITE_URL}/passport-photo`,
           description: DESCRIPTION,
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
         }}
       />
-      <FrontBackCardClient />
+      <PassportPhotoClient />
     </>
   );
 }
