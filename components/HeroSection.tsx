@@ -29,7 +29,23 @@ export function HeroSection() {
             </div>
             <span className="text-sm font-medium">Professional Printing</span>
           </div>
-          
+
+          {/* Product Hunt badge */}
+          <div className="mb-8">
+            <a
+              href="https://www.producthunt.com/products/print-cardify?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-print-cardify"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1192765&theme=light&t=1784189850939"
+                alt="Print Cardify - Print double-sided cards on any one-sided printer in one go. | Product Hunt"
+                width={250}
+                height={54}
+              />
+            </a>
+          </div>
+
           {/* Main headline with gradient text */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 font-bold">
             <span className="bg-gradient-to-r from-violet-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
